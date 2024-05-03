@@ -60,7 +60,7 @@ function login(){
        // localStorage.setItem('checkbox', remb.value);
        
         // window.location.href("/project0/SignInUp/profile.html")
-        window.open('/javascript/miniProject/miniproject.html', '_blank', 'noopener, noreferrer');
+        window.open('miniproject.html', '_blank', 'noopener, noreferrer');
       
     }
     else{
@@ -71,7 +71,7 @@ function login(){
 function logout(){
     localStorage.removeItem('name')
     localStorage.removeItem('email')
-    window.open('/javascript/miniProject/index.html', '_self', 'noopener, noreferrer');
+    window.open('index.html', '_self', 'noopener, noreferrer');
 }
 
 

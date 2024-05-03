@@ -4,21 +4,22 @@
   <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="/javascript/miniProject/miniproject.css">
-    <script src="/javascript/miniProject/logSign.js" defer></script>
-    <script src="/javascript/miniProject/miniproject.js" defer /></script>
+    <link rel="stylesheet" type="text/css" href="myminiproject.css">
+    <script src="logSign.js" defer></script>
+    <script src="miniproject.js" defer /></script>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
 
      <!-- icon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
     <title>MiniProject</title>
+   
 </head>
 <body >
 
     <script>
         if((localStorage.getItem("name")) == null){
-           window.open('/javascript/miniProject/index.html', '_self', 'noopener, noreferrer');
+           window.open('index.html', '_self', 'noopener, noreferrer');
            alert('Login First!')
            
        }
@@ -42,7 +43,7 @@
         <div class="close-btn" onclick="hideMenu()">
             <i class="fa-solid fa-xmark"></i>
         </div>
-        <img src="/javascript/miniProject/logo.png"  alt="myphoto">
+        <img src="logo.png"  alt="myphoto">
         <h1 id="username" style="text-align: center;">LOGO</h1>
     </header>
 
@@ -65,7 +66,7 @@
 </div>
 
    
-    <div class="item" id="out" onclick="logout()"><a href="/javascript/miniProject/logSign.html"><i class="fa-solid fa-right-from-bracket"></i>Logout</a></div>
+    <div class="item" id="out" onclick="logout()"><a href="index.html"><i class="fa-solid fa-right-from-bracket"></i>Logout</a></div>
 </div>
 
 
@@ -145,9 +146,9 @@
     <div class="projects__container container grid">
       <article class="projects__card" id="Calculator">
         <div class="projects__image">
-          <img src="/javascript/miniProject/calculatorImg.jpg" alt="image" class="projects__img">
+          <img src="calculatorImg.jpg" alt="image" class="projects__img">
   
-          <a href="/javascript/miniProject/calculator.html" class="projects__button button">
+          <a href="calculator.html" class="projects__button button">
             <i class="ri-arrow-right-up-line"></i>
           </a>
         </div>
@@ -166,7 +167,7 @@
             <i class="ri-github-line"></i> Source Code
           </a> -->
   
-          <a href="/javascript/miniProject/calculator.html" target="_blank" class="projects__link">
+          <a href="calculator.html" target="_blank" class="projects__link">
             <i class="fa-solid fa-eye"></i> View
           </a>
         </div>
@@ -176,9 +177,9 @@
 
       <article class="projects__card" id="String">
         <div class="projects__image">
-          <img src="/javascript/miniProject/stringtranslaterImg.jpg" alt="image" class="projects__img">
+          <img src="stringtranslaterImg.jpg" alt="image" class="projects__img">
   
-          <a href="/javascript/miniProject/stringTranslater.html" class="projects__button button">
+          <a href="stringTranslater.html" class="projects__button button">
             <i class="ri-arrow-right-up-line"></i>
           </a>
         </div>
@@ -198,7 +199,7 @@
             <i class="ri-github-line"></i> Source Code
           </a> -->
   
-          <a href="/javascript/miniProject/stringTranslater.html" target="_blank" class="projects__link">
+          <a href="stringTranslater.html" target="_blank" class="projects__link">
             <i class="fa-solid fa-eye"></i> View
           </a>
         </div>
@@ -239,5 +240,8 @@
   </section>
 
 </div>
+
+  
+
       </body>
 </html>
