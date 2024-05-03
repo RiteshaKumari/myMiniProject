@@ -71,7 +71,7 @@ function login(){
 function logout(){
     localStorage.removeItem('name')
     localStorage.removeItem('email')
-    window.open('/javascript/miniProject/logSign.html', '_self', 'noopener, noreferrer');
+    window.open('/javascript/miniProject/index.html', '_self', 'noopener, noreferrer');
 }
 
 
