@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="/javascript/miniProject/miniproject.css">
+    <script src="/javascript/miniProject/logSign.js" defer></script>
+    <script src="/javascript/miniProject/miniproject.js" defer /></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+
+     <!-- icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <title>MiniProject</title>
+</head>
+<body >
+
+    <script>
+        if((localStorage.getItem("name")) == null){
+           window.open('/javascript/miniProject/logSign.html', '_self', 'noopener, noreferrer');
+           alert('Login First!')
+           
+       }
+       else
+       {
+           window.onload = function() {
+               document.getElementById('username').innerText =  localStorage.getItem("name");
+           };
+         
+       }
+    </script>
+
+<div class="menusym" class="container">
+<div class="menubtn" onclick="showMenu()">
+    <i class="fa-solid fa-bars-staggered"></i> 
+    
+</div>
+</div>
+    <div class="side-bar">
+    <header>
+        <div class="close-btn" onclick="hideMenu()">
+            <i class="fa-solid fa-xmark"></i>
+        </div>
+        <img src="/javascript/miniProject/logo.png"  alt="myphoto">
+        <h1 id="username" style="text-align: center;">LOGO</h1>
+    </header>
+
+
+
+<div class="menu">
+  <div class="item"><a href="#todo"><i class="fa-solid fa-table-list"></i>Todo</a></div>
+    <div class="item"><a href="#guess"><i class="fa-solid fa-volleyball"></i>GuessNumberGame</a></div>
+   
+    <div class="item " onclick="drop()" ><a ><i class="fa-solid fa-diagram-project"></i>More Projects
+
+        <i class="fa-solid fa-caret-down dropdown"></i>
+    </a>
+
+    <div class="submenu">
+        <a href="#Calculator" class="sub-menu">Calculator</a>
+       
+        <a href="#String" class="sub-menu">String Translater</a>
+    </div>
+</div>
+
+   
+    <div class="item" id="out" onclick="logout()"><a href="/javascript/miniProject/logSign.html"><i class="fa-solid fa-right-from-bracket"></i>Logout</a></div>
+</div>
+
+
+    </div>
+<div class="right">
+
+<!--//////////////////////////////////////////    TODOLIST     ////////////////////////////// -->
+
+<div class="todo" id="todo">
+    <h1 style="text-align: center;padding-bottom:20px;">To Do List</h1><span style="height: 30px;width:30px;color:white"></span>
+
+<div class="todolist">
+<!--     
+    <div class="todolist1">
+    
+     <ul>
+        <li>Your work4</li>
+     </ul>
+     <div class="todolist2">
+        <i class="fa-solid fa-arrow-down"></i>
+        <i class="fa-solid fa-arrow-up"></i>
+        <i class="fa-solid fa-trash-can"></i>
+   
+    </div> 
+</div> -->
+
+
+
+</div>
+<div class="addhide">
+    <input id="addtodoitem" type="text">
+    <button id="AddItem" >AddItem</button>
+    
+    <button id="HideItem" class="Hide">HideItem</button>
+</div>
+</div>
+    
+
+
+<!--//////////////////////////////////////////    Toast     ////////////////////////////// -->
+
+<div class="notifications"></div>
+     <!-- <div class="buttons">
+       <button id="success">Success</button> 
+        <button id="error">Error</button>
+        <button id="warning">Warning</button>
+        <button id="info">Info</button>
+    </div>  -->
+
+
+<!--//////////////////////////////////////////    GUESSTHENUMBER     ////////////////////////////// -->
+
+<div class="guessgame" id = "guess">
+   <div class="guessgameinner">
+      <h1>😀 Guess The Number 😀</h1>
+<br>
+    <p>Enter a guess between 0 to 100</p>
+  <form >
+    <input id="guessnum" type="number" placeholder="Enter a number" max="100" min="0" required/>
+    <div class="guessbtns">
+       <button id="submit" >Submit</button>
+       <button type="button" id="StartGame" disabled>StartGame</button>
+    </div>
+</form>
+    <p id="regards"></p>
+    <p id="yourGuesses"></p>
+  </div>
+  </div>
+       
+<!--//////////////////////////////////////////    SOME MORE PROJECTS     ////////////////////////////// -->
+
+<section class="projects section" id="projects">
+    <h2 class="section__title-1">
+      <span>More Projects.</span>
+    </h2>
+  
+    <div class="projects__container container grid">
+      <article class="projects__card" id="Calculator">
+        <div class="projects__image">
+          <img src="/javascript/miniProject/calculatorImg.jpg" alt="image" class="projects__img">
+  
+          <a href="/javascript/miniProject/calculator.html" class="projects__button button">
+            <i class="ri-arrow-right-up-line"></i>
+          </a>
+        </div>
+  
+        <div class="projects__content">
+          <!-- <h3 class="projects__subtitle">Website</h3> -->
+          <h2 class="projects__title">Calculator</h2>
+  
+          <p class="projects__description">
+            Made with HTML,CSS and JAVASCRIPT. You can enjoy any calculation here with dark and light mode.
+          </p>
+        </div>
+  
+        <div class="projects__buttons">
+          <!-- <a href="https://github.com/" target="_blank" class="projects__link">
+            <i class="ri-github-line"></i> Source Code
+          </a> -->
+  
+          <a href="/javascript/miniProject/calculator.html" target="_blank" class="projects__link">
+            <i class="fa-solid fa-eye"></i> View
+          </a>
+        </div>
+      </article>
+
+  
+
+      <article class="projects__card" id="String">
+        <div class="projects__image">
+          <img src="/javascript/miniProject/stringtranslaterImg.jpg" alt="image" class="projects__img">
+  
+          <a href="/javascript/miniProject/stringTranslater.html" class="projects__button button">
+            <i class="ri-arrow-right-up-line"></i>
+          </a>
+        </div>
+  
+        <div class="projects__content">
+          <!-- <h3 class="projects__subtitle">Website</h3> -->
+          <h2 class="projects__title">String Translater</h2>
+  
+          <p class="projects__description">
+            Made with HTML,CSS and JAVASCRIPT. You have to enter your string and you will get it's Lower Case , Upper Case, Camel Case, 
+            Pascal Case, Snake case, Kebab Case, Trimed form.
+          </p>
+        </div>
+  
+        <div class="projects__buttons">
+          <!-- <a href="https://github.com/" target="_blank" class="projects__link">
+            <i class="ri-github-line"></i> Source Code
+          </a> -->
+  
+          <a href="/javascript/miniProject/stringTranslater.html" target="_blank" class="projects__link">
+            <i class="fa-solid fa-eye"></i> View
+          </a>
+        </div>
+      </article>
+ 
+   
+      <!-- <article class="projects__card">
+        <div class="projects__image">
+          <img src="https://images.unsplash.com/photo-1672257493461-704902362c1d?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTI3NjY0OTV8&ixlib=rb-4.0.3&q=85" alt="image" class="projects__img">
+  
+          <a href="#" class="projects__button button">
+            <i class="ri-arrow-right-up-line"></i>
+          </a>
+        </div>
+  
+        <div class="projects__content">
+          <h3 class="projects__subtitle">Website</h3>
+          <h2 class="projects__title">Barbershop Website</h2>
+  
+          <p class="projects__description">
+            Project that you carry out in the design
+            and structure of the layout, showing the
+            design at the client's request.
+          </p>
+        </div>
+  
+        <div class="projects__buttons">
+          <a href="https://github.com/" target="_blank" class="projects__link">
+            <i class="ri-github-line"></i> Source Code
+          </a>
+  
+          <a href="https://dribbble.com/" target="_blank" class="projects__link">
+            <i class="ri-dribbble-line"></i> View
+          </a>
+        </div>
+      </article> -->
+    </div>
+  </section>
+
+</div>
+      </body>
+</html>

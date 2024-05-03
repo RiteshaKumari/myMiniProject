@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="/javascript/miniProject/logSign.js" defer></script>
+    <script src="/javascript/miniProject/miniproject.js" defer /></script>
+    <style>
+      .body{
+        height: 90vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: blanchedalmond;
+      }
+
+      .container{
+        position:relative;
+         max-width: 300px;
+         width: 100%;
+         padding: 10px 20px 20px;
+         background-color: #fff;
+         border-radius: 12px;
+         box-shadow:0 10px 10px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19)
+    }
+
+    .display{
+        height: 80px;
+        width: 100%;
+        margin-bottom: 10px;
+        font-size: 25px;
+        outline:none;
+        border:none;
+        text-align: right;
+        color: #000e1a;
+        pointer-events: none;
+    }
+
+
+   .buttons{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+   }
+
+   .buttons button{
+    padding:  10px;
+    cursor:pointer;
+    padding: 10px;
+    border-radius: 6px;
+    border: none;
+    background-color: #eee;
+    font-size: 20px;
+    box-shadow:0 10px 10px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19)
+   }
+
+   .buttons button:active{
+    box-shadow:none
+   }
+
+   .buttons button:hover{
+    background-color: #f4d8d8;
+   }
+    
+   .operator{
+    color: blue;
+   }
+   .gre{
+    background-color: lightgreen !important;
+   }
+   .blu{
+    background-color: lightblue !important;
+   }
+   .pin{
+    background-color: rgb(235, 170, 202) !important;
+   }
+   .bgcolorchange{
+ 
+    margin-bottom: 10px;
+    text-align: center;
+    padding: 10px;
+   }
+
+   .bgcolorchange .sun{
+    background-color: rgb(249, 246, 246);
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow:0 10px 10px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19)
+   }
+   .bgcolorchange .moon{
+    background-color: rgb(55, 50, 50);
+    padding: 5px;
+    color: white;
+    border-radius: 5px;
+    box-shadow:0 10px 10px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19)
+   }
+
+   .bgcolorchange .sun:active{
+    box-shadow: none;
+   }
+   .bgcolorchange .moon:active{
+    box-shadow: none;
+   }
+
+    </style>
+</head>
+<body>
+    <script>
+        if((localStorage.getItem("name")) == null){
+           window.open('/javascript/miniProject/logSign.html', '_self', 'noopener, noreferrer');
+           alert('Login First!')
+           
+       }
+       else
+       {
+           window.onload = function() {
+               document.getElementById('username').innerText =  localStorage.getItem("name");
+           };
+         
+       }
+    </script>
+    <div class="body">
+    <div class="container">
+        <div class="bgcolorchange">
+            <i class="fa-solid fa-moon moon" onclick="moon()"></i>
+            <i class="fa-solid fa-sun sun" onclick="sun()"></i>
+        </div>
+        <input type="text" id="screen" class="display" placeholder="0">
+
+        <div class="buttons">
+            <button class="operator blu " onclick="screen.value=''">AC</button>
+            <button class="operator pin"  onclick="backspc()">DEL</button>
+            <button class="operator" onclick="pow()">x <span style="position: relative; bottom: .4em; right: .1em;">y</span>
+            </button>
+            <button class="operator" onclick="log()">log</button>
+            
+            <button class="operator" onclick="sin()">sin</button>
+            <button class="operator" onclick="cos()">cos</button>
+            <button class="operator" onclick="tan()">tan</button>
+            <button class="operator btn">/</button>
+            
+           
+                <button class="operator" onclick="sqrt()">√</button>
+                <button class="operator" onclick="pi()">π</button>
+                <button class="operator" onclick="e()">e</button>
+                <button class="operator btn">%</button>
+               
+    
+            <button class="btn">7</button>
+            <button class="btn">8</button>
+            <button class="btn">9</button>
+            <button class="operator btn">*</button>
+            
+            <button class="btn">4</button>
+            <button class="btn">5</button>
+            <button class="btn">6</button>
+            <button class="operator btn">-</button>
+           
+            <button class="btn">1</button>
+            <button class="btn">2</button>
+            <button class="btn">3</button>
+            <button class="operator btn">+</button>
+           
+            <button class="btn">0</button>
+            
+            <button class="btn">.</button>
+
+            <button class="operator gre" onclick="screen.value=eval(screen.value)">=</button>
+            <button class="operator" onclick="fact()">x!</button>
+        </div>
+        
+        </div>
+    </div>
+
+    <script>
+        var screen = document.querySelector('#screen');
+        var btn = document.querySelectorAll('.btn');
+
+        for (item of btn) {
+            item.addEventListener('click', (e) => {
+                btntext = e.target.innerText;
+    
+                if (btntext == '×') {
+                    btntext = '*';
+                }
+
+                if (btntext == '=') {
+                    alert('Enter valid value !')
+                }
+    
+                screen.value += btntext;
+            });
+        }
+    
+        function sin() {
+            screen.value = Math.sin(screen.value);
+        }
+    
+        function cos() {
+            screen.value = Math.cos(screen.value);
+        }
+    
+        function tan() {
+            screen.value = Math.tan(screen.value);
+        }
+    
+        function pow() {
+            screen.value = Math.pow(screen.value, 2);
+        }
+    
+        function sqrt() {
+            screen.value = Math.sqrt(screen.value, 2);
+        }
+    
+        function log() {
+            screen.value = Math.log(screen.value);
+        }
+    
+        function pi() {
+            screen.value = 3.14159265359;
+        }
+    
+        function e() {
+            screen.value = 2.71828182846;
+        }
+    
+        function fact() {
+            var i, num, f;
+            f = 1
+            num = screen.value;
+            for (i = 1; i <= num; i++) {
+                f = f * i;
+            }
+    
+            i = i - 1;
+    
+            screen.value = f;
+        }
+    
+        function backspc() {
+            screen.value = screen.value.substr(0, screen.value.length - 1);
+        }
+
+        let container = document.querySelector('.container')
+        let buttons = document.querySelector('.buttons')
+        let btn1 = document.querySelector('.btn')
+
+        function moon(){
+           container.style.backgroundColor ="rgb(55, 50, 50)"
+           container.style.boxShadow = "box-shadow: 0px 0px 10px 0px white, 0px 0px 20px 0px rgba(0, 0, 0, 0.5);"
+        }
+
+        function sun(){
+            container.style.backgroundColor ="white"
+            container.style.boxShadow ="0 10px 10px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19)"
+        }
+    
+    </script>
+</body>
+</html>

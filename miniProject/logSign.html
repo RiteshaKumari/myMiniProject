@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LoginSignup</title>
+    <link rel="stylesheet" type="text/css" href="/javascript/miniProject/logSign.css" />
+    <script src="/javascript/miniProject/logSign.js" defer></script>
+
+</head>
+<body onload="log()">
+    
+    <div class="main">
+       
+        <input type="checkbox" id="chk" aria-hidden="true">
+        <div class="signup">
+            <form action="#" name="form1" onsubmit="return validForm()">
+                 <label for="chk" aria-hidden="true">Sign up</label>
+                 <input type="name" name="name" id="name" placeholder="Name" required>
+                 
+                 <input type="email" name="email" id="email" placeholder="Email" required>
+                 
+                 <input type="password" name="pswd" id="pswd" placeholder="Password" required >
+               
+                 <!-- <input type="password" name="conpswd" id="conpswd"placeholder="ConfirmPassword" required> -->
+                 <button onclick="signup()">Signup</button>
+                 <!-- <button onclick="window.location.reload()">Reset</button> -->
+                
+            </form>
+        </div>
+    
+       <div class="login">
+            <form action="#">
+            <label for="chk" aria-hidden="true">Login</label>
+
+            <script>
+                function log(){
+                if(localStorage.getItem("email") !== null && localStorage.getItem("password") !== null){
+                    document.getElementById("Logemail").value = localStorage.getItem("email")
+                    document.getElementById("Logpswd").value = localStorage.getItem("password")
+                }
+            }
+            </script>
+
+            <input type="email" name="email" id="Logemail" placeholder="Email" required>
+            <input type="password" name="pswd" id="Logpswd" placeholder="Password" required>
+            
+            <!-- <input type="checkbox" id="rem" name="rem" value="Remember Me"style="margin:-3px 1px 0px 1px">
+            <label for="rem" style="font-size: medium;margin:-18px" id="remb" > Remember Me</label>  -->
+            <button onclick="login()">Login</button>
+          
+            <!-- <button onclick="ForgotPass()">Forgot Password?</button> -->
+         
+           
+         </form> 
+        </div>
+         
+    </div> 
+ 
+  
+</body>
+</html>

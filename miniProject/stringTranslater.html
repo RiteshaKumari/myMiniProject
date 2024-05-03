@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>String transformers</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="/javascript/miniProject/logSign.js" defer></script>
+    <script src="/javascript/miniProject/miniproject.js" defer /></script>
+ <style>
+    * {
+        box-sizing: border-box;
+      }
+      
+      body {
+        text-align: center;
+        font-family: 'Roboto', sans-serif;
+        background: #fd727247;
+      }
+      
+      main {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+      
+      input {
+        width: 100%;
+        margin-bottom: 1rem;
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+      }
+      
+      .transformed-output {
+        font-size: 1.2rem;
+        margin: 1.5rem 0;
+        padding: 1rem;
+        background-color: beige;
+        position: relative;
+        text-align: left;
+      }
+      
+      .transformed-output label {
+        font-size: 0.75rem;
+        position: absolute;
+        top: -0.75rem;
+        left: 1rem;
+        background-color: black;
+        color: white;
+        padding: 0.25rem;
+      }
+ </style>
+  </head>
+  <body>
+    <script>
+      if((localStorage.getItem("name")) == null){
+         window.open('/javascript/miniProject/logSign.html', '_self', 'noopener, noreferrer');
+         alert('Login First!')
+         
+     }
+     else
+     {
+         window.onload = function() {
+             document.getElementById('username').innerText =  localStorage.getItem("name");
+         };
+       
+     }
+  </script>
+    <h1>String Translator</h1>
+   <main>
+    <input type="text" placeholder="enter the sentence with spaces (alphanumeric)" value="this is a normal sentence to transform">
+    <div class="transformed-output" id="lowercase">
+      <label>Lower Case</label>
+      <span></span>
+    </div>
+    <div class="transformed-output" id="uppercase">
+      <label>Upper Case</label>
+      <span></span>
+    </div>
+    <div class="transformed-output" id="camelcase">
+      <label>Camel Case</label>
+      <span></span>
+    </div>
+    <div class="transformed-output" id="pascalcase">
+      <label>Pascal Case</label>
+      <span></span>
+    </div>
+    <div class="transformed-output" id="snakecase">
+      <label>Snake Case</label>
+      <span></span>
+    </div>
+    <div class="transformed-output" id="kebabcase">
+      <label>Kebab Case</label>
+      <span></span>
+    </div>
+    <div class="transformed-output" id="trim">
+      <label>Trim</label>
+      <span></span>
+    </div>
+   </main>
+   <script>
+    const input = document.querySelector('input')
+
+const lowerCaseOutput = document.querySelector('#lowercase span')
+const upperCaseOutput = document.querySelector('#uppercase span')
+const camelCaseOutput = document.querySelector('#camelcase span')
+const pascalCaseOutput = document.querySelector('#pascalcase span')
+const snakeCaseOutput = document.querySelector('#snakecase span')
+const kebabCaseOutput = document.querySelector('#kebabcase span')
+const trimOutput = document.querySelector('#trim span')
+
+function capitalizeString(str) {
+  if (!str) return str
+  return str[0].toUpperCase() + str.slice(1, str.length)
+}
+
+function camelCase(str) {
+  const lowerCaseString = str.toLowerCase()
+  const wordsArray = lowerCaseString.split(' ')
+  const finalArray = wordsArray.map((word, i) => {
+    if (i === 0) return word
+    return capitalizeString(word)
+  })
+  return finalArray.join('')
+}
+
+function pascalCase(str) {
+  const lowerCaseString = str.toLowerCase()
+  const wordsArray = lowerCaseString.split(' ')
+  const finalArray = wordsArray.map((word) => {
+    return capitalizeString(word)
+  })
+  return finalArray.join('')
+}
+
+function snakeCase(str) {
+  return str.replaceAll(' ', '_')
+}
+
+function kebabCase(str) {
+  return str.replaceAll(' ', '-')
+}
+
+function trim(str) {
+  return str.replaceAll(' ', '')
+}
+
+function updateScreen() {
+  lowerCaseOutput.innerText = input.value.trim().toLowerCase()
+  upperCaseOutput.innerText = input.value.trim().toUpperCase()
+  camelCaseOutput.innerText = camelCase(input.value.trim())
+  pascalCaseOutput.innerText = pascalCase(input.value.trim())
+  snakeCaseOutput.innerText = snakeCase(input.value.trim())
+  kebabCaseOutput.innerText = kebabCase(input.value.trim())
+  trimOutput.innerText = trim(input.value.trim())
+}
+
+updateScreen()
+
+input.addEventListener('input', updateScreen)
+   </script>
+  </body>
+</html>
