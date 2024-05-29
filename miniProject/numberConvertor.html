@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number System Conversion</title>
+</head>
+<style>
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(101, 247, 82);
+    width: 99vw;
+    height: 96vh;
+}
+.converter{
+    width: 65vw;
+    height:fit-content ;
+    background-color: #fff;
+}
+.converter > h1{
+    margin: 1.7vw;
+    font-size: 4vw;
+}
+.select > p{
+    margin: 1vw 1vw 0vw 3vw;
+    font-size: 2vw;
+}
+#unitConverter,output{
+    width: 20vw;
+    margin: 1vw 1vw 2vw 3vw;
+    font-size: 1.5vw;
+}
+.input,.input1{
+    margin: 2vw;
+    display: none;
+}
+#input,#output,#inputbase,#outputbase{
+    width: 20vw;
+    margin: 1vw 1vw 2vw 0vw;
+    font-size: 1.5vw;
+}
+#inputlabel,#outputlabel,#inputbaselabel,#outputbaselabel{
+    font-size: 1vw;
+}
+</style>
+<body>
+    <div class="container">
+        <div class="converter">
+            <h1>Number System Converter</h1>
+            <div class="select">
+                <p>Please select the converter
+                <select id="unitConverter" onchange="passSelectedValue()">
+                    <option value="">Select Converter</option>
+                    <option value="bintodec" id="bintodec">Binary-Decimal</option>
+                    <option value="dectobin" id="dectobin">Decimal-Binary</option>
+                    <option value="octtobin" id="octtobin">Octal-Binary</option>
+                    <option value="bintooct" id="bintooct">Binary-Octal</option>
+                    <option value="bintohex" id="bintohex">Binary-Hexadecimal</option>
+                    <option value="hextobin" id="hextobin">Hexadecimal-Binary</option>
+                </select>
+                </p>
+            </div>
+            <div class="input" id="inputdiv">
+                <strong><label id="inputlabel"></label></strong>
+                <input type="text" id="input" oninput="baseconverter(this.value)" onchange="baseconverter(this.value)">
+                <strong><label id="outputlabel"></label></strong>
+                <input id="output">
+            </div>
+        </div>
+    </div>  
+    <script>
+        
+        var passSelectedValue = () => { 
+            if(document.getElementById("unitConverter").value === "bintodec"){
+            document.getElementById("input").value="";
+            document.getElementById("output").value="";
+            document.getElementById("inputdiv").style.display = "block";
+            document.getElementById("inputlabel").innerHTML = "Binary Value:";
+            document.getElementById("outputlabel").innerHTML = "Decimal Value:";
+            document.getElementById("input").setAttribute("placeholder","Enter Binary Value");
+            document.getElementById("output").setAttribute("placeholder","Output Decimal Value");
+            }
+
+            if(document.getElementById("unitConverter").value === "dectobin"){
+            document.getElementById("input").value="";
+            document.getElementById("output").value="";    
+            document.getElementById("inputdiv").style.display = "block";
+            document.getElementById("inputlabel").innerHTML = "Decimal Value:";
+            document.getElementById("outputlabel").innerHTML = "Binary Value:";
+            document.getElementById("input").setAttribute("placeholder","Enter Decimal Value");
+            document.getElementById("output").setAttribute("placeholder","Output binary Value");
+            }
+
+            if(document.getElementById("unitConverter").value === "octtobin"){
+            document.getElementById("input").value="";
+            document.getElementById("output").value="";
+            document.getElementById("inputdiv").style.display = "block";
+            document.getElementById("inputlabel").innerHTML = "Octal Value:";
+            document.getElementById("outputlabel").innerHTML = "Binary Value:";
+            document.getElementById("input").setAttribute("placeholder","Enter Octal Value");
+            document.getElementById("output").setAttribute("placeholder","Output Binary Value");
+            }
+        
+            if(document.getElementById("unitConverter").value === "bintooct"){
+            document.getElementById("input").value="";
+            document.getElementById("output").value="";        
+            document.getElementById("inputdiv").style.display = "block";
+            document.getElementById("inputlabel").innerHTML = "Binary Value:";
+            document.getElementById("outputlabel").innerHTML = "Octal Value:";
+            document.getElementById("input").setAttribute("placeholder","Enter Binary Value");
+            document.getElementById("output").setAttribute("placeholder","Output Octal Value");
+            }
+            
+            if(document.getElementById("unitConverter").value === "bintohex"){
+            document.getElementById("input").value="";
+            document.getElementById("output").value="";
+            document.getElementById("inputdiv").style.display = "block";
+            document.getElementById("inputlabel").innerHTML = "Binary Value:";
+            document.getElementById("outputlabel").innerHTML = "Hexadecimal Value:";
+            document.getElementById("input").setAttribute("placeholder","Enter Binary Value");
+            document.getElementById("output").setAttribute("placeholder","Output Hexadecimal Value");
+            }
+
+            if(document.getElementById("unitConverter").value === "hextobin"){
+            document.getElementById("input").value="";
+            document.getElementById("output").value="";
+            document.getElementById("inputdiv").style.display = "block";
+            document.getElementById("inputlabel").innerHTML = "Hexadecimal Value:";
+            document.getElementById("outputlabel").innerHTML = "Binary Value:";
+            document.getElementById("input").setAttribute("placeholder","Enter Hexadecimal Value");
+            document.getElementById("output").setAttribute("placeholder","Output Binary Value");
+            }
+            
+        }
+    function baseconverter(value){
+        let values = value;
+        console.log(parseInt(values,8));
+        if(document.getElementById("unitConverter").value === "bintodec")
+            document.getElementById("output").value = parseInt(values, 2);
+        
+        if(document.getElementById("unitConverter").value === "dectobin")
+            document.getElementById("output").value = conversion(parseInt(values,10), 2)
+        
+        if(document.getElementById("unitConverter").value === "octtobin")
+            document.getElementById("output").value = conversion(parseInt(values, 8), 2);
+    
+        if(document.getElementById("unitConverter").value === "bintooct")
+            document.getElementById("output").value = conversion(parseInt(values, 2), 8);
+
+        if(document.getElementById("unitConverter").value === "bintohex")
+            document.getElementById("output").value = conversion(parseInt(values, 2), 16);
+        
+        if(document.getElementById("unitConverter").value === "hextobin")
+            document.getElementById("output").value = conversion(parseInt(values, 16), 2);
+       
+        if(document.getElementById("unitConverter").value === "hextobin")
+            document.getElementById("output").value = conversion(parseInt(values, 16), 2);
+    }
+    function conversion(number, to){
+        if (number === 0) return "0"; 
+        let arr = [];
+        if(to != 16){ 
+            for (; number > 0; number = Math.floor(number / to)) { 
+                arr.unshift(number % to); 
+            } 
+        }
+        else{
+            for (; number > 0; number = Math.floor(number / to)) { 
+                numbers = number % to;
+                if(numbers === 10){
+                    arr.unshift("A");
+                } 
+                if(numbers === 11){
+                    arr.unshift("B");
+                } 
+                if(numbers === 12){
+                    arr.unshift("C");
+                }
+                if(numbers === 13){
+                    arr.unshift("D");
+                } 
+                if(numbers === 14){
+                    arr.unshift("E");
+                } 
+                if(numbers === 15){
+                    arr.unshift("F");
+                }
+                else {
+                arr.unshift(numbers);
+                } 
+            } 
+        }
+        return arr.join(""); 
+       }
+    </script>  
+</body>
+</html>

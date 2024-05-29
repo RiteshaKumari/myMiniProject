@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Flipper</title>
+    <style>
+     body{
+     background-color: #cca4fa;
+    }
+    .container{
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: #faa4a4; */
+    }
+    .subContainer{
+    width: 400px;
+    padding: 3%;
+    background-color: #cca4fa;
+    }
+    #colorBox{
+    width: 400px;
+    height: 200px;
+    background-color: #fff;    
+    }
+    #redcolor,#bluecolor,#blackcolor,#pinkcolor,#goldcolor,#whitecolor{
+    width: 30px;
+    height: 30px;
+    margin: 16px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    }
+    #redcolor{
+        background-color: red;
+    }
+    #bluecolor{
+        background-color: #4169E1;
+    }
+    #blackcolor{
+        background-color: black;
+    }
+    #pinkcolor{
+        background-color: #FF69B4;
+    }
+    #goldcolor{
+        background-color: gold;
+    }
+    #Whitecolor{
+        background-color: #fff;
+    }   
+    #color{
+        border: none;
+        border-radius: 2%;
+        padding: 2%;
+    }
+    #color:focus{
+        background-color: #f2d2fa;
+    }
+    #submit{
+        padding: 2%;
+        margin-left: 5%;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="subContainer">
+         <div id="colorBox"></div><br>
+         <button type="button" id="redcolor"></button>
+         <button type="button" id="bluecolor"></button>
+         <button type="button" id="pinkcolor"></button>
+         <button type="button" id="whitecolor"></button>
+         <button type="button" id="goldcolor"></button>
+         <button type="button" id="blackcolor"></button>
+         <label for="color" class="color"><strong>Enter Your Color: </strong></label>
+         <input type="text" id="color" name="color">
+         <button id="submit">Submit</button>
+        </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById("redcolor").onclick = ()=>{
+           document.getElementById("colorBox").style.backgroundColor = "red";
+        }
+        document.getElementById("bluecolor").onclick = ()=>{
+           document.getElementById("colorBox").style.backgroundColor = "#4169E1";
+        }
+        document.getElementById("blackcolor").onclick = ()=>{
+           document.getElementById("colorBox").style.backgroundColor = "black";
+        }
+        document.getElementById("pinkcolor").onclick = ()=>{
+           document.getElementById("colorBox").style.backgroundColor = "#FF69B4";
+        }
+        document.getElementById("goldcolor").onclick = ()=>{
+           document.getElementById("colorBox").style.backgroundColor = "gold";
+        }
+        document.getElementById("whitecolor").onclick = ()=>{
+           document.getElementById("colorBox").style.backgroundColor = "white";
+        }
+        document.getElementById("submit").onclick = ()=>{
+           document.getElementById("colorBox").style.backgroundColor = document.getElementById("color").value;
+        }
+    </script>
+</body>
+</html>
