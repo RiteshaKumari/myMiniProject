@@ -46,7 +46,11 @@
         <img src="logo.png"  alt="myphoto">
         <h1 id="username" style="text-align: center;">LOGO</h1>
     </header>
-
+    <div class="header">
+      <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+    </div>
 
 
 <div class="menu">
@@ -361,7 +365,18 @@
 
 </div>
 
-  
+<script>
+  function progressBarScroll() {
+      let winScroll = document.body.scrollTop || document.documentElement.scrollTop,
+          height = document.documentElement.scrollHeight - document.documentElement.clientHeight,
+          scrolled = (winScroll / height) * 100;
+      document.getElementById("progressBar").style.width = scrolled + "%";
+    }
+    
+    window.onscroll = function () {
+      progressBarScroll();
+    };
+</script>
 
       </body>
 </html>
